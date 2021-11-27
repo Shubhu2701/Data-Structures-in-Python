@@ -50,7 +50,7 @@ class LinkedList:
     
     def removeAt(self,index):
         if index<0 or index>=self.getLength():
-            raise Exception("Invalid Index")
+            raise Exception("Invalid out of bounds")
             
         if index==0:
             self.head =self.head.nextNode
@@ -67,7 +67,7 @@ class LinkedList:
             
     def insertAt(self,index,data):
         if index<0 or index>=self.getLength():
-            raise Exception("Invalid Index")
+            raise Exception("Index out of bounds")
         
         if index==0:
             self.insertAtBegin(data)
@@ -83,19 +83,18 @@ class LinkedList:
             itr=itr.nextNode
             count+=1
             
-    def insertList(self,list):
-        self.head=None
-        for data in list:
+    def insertList(self,lst):
+        for data in lst:
             self.insertAtEnd(data)
         
         
             
-"""
+
 ll=LinkedList()
+ll.insertAtBegin(22)
 ll.insertList([2,5,6,2,6,88,])
 ll.insertAtBegin(520)
 ll.insertAtEnd(69)
-ll.removeAt(4)
+ll.removeAt(8)
 ll.insertAt(4,69) 
 ll.printList()
-"""    
